@@ -1,0 +1,15 @@
+<h1>Project Info</h1>
+
+<div>
+  <p>Name: <%= @project.name %></p>
+  <p>Phase Number: <%= @project.phase_num %></p>
+  <p>Description: <%= @project.description %></p>
+  <p>Website Link: <%= @project.website_link %></p>
+  <p>GitHub Link: <%= @project.github_link %></p>
+  <p>Blog Link: <%= @project.blog_link %></p>
+  <p>Video Link: <%= @project.video_link %></p>
+  <p>Date Posted: <%= @project.created_at %></p>
+</div>
+
+<%= link_to "Edit", edit_project_path(@project) %>
+<%= link_to "Delete", project_path(@project), method: "delete" %>

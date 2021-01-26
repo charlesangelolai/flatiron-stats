@@ -1,0 +1,31 @@
+<%= form_with model: @project, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :phase_num %>
+    <%= f.number_field :phase_num %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :website_link %>
+    <%= f.text_field :website_link %>
+  </div>
+  <div>
+    <%= f.label :github_link %>
+    <%= f.text_field :github_link %>
+  </div>
+  <div>
+    <%= f.label :blog_link %>
+    <%= f.text_field :blog_link %>
+  </div>
+  <div>
+    <%= f.label :video_link %>
+    <%= f.text_field :video_link %>
+  </div>
+  <%= f.submit button_name %>
+<% end %>
