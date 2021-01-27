@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_043959) do
+ActiveRecord::Schema.define(version: 2021_01_26_215702) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
     t.string "program"
-    t.string "status"
+    t.string "time"
+    t.string "status", default: "pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,6 +30,12 @@ ActiveRecord::Schema.define(version: 2021_01_26_043959) do
     t.string "blog_link"
     t.string "video_link"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -67,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_043959) do
     t.string "last_name", default: "", null: false
     t.integer "cohort_id"
     t.integer "survey_response_id"
+    t.integer "role_id", default: 3
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
