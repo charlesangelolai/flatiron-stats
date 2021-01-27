@@ -1,0 +1,19 @@
+<%= form_with model: cohort, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :program %>
+    <%= f.text_field :program %>
+  </div>
+  <div>
+    <%= f.label :time %>
+    <%= f.text_field :time %>
+  </div>
+  <div>
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+  <%= f.submit button_name %>
+<% end %>
