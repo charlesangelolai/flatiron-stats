@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :last_name, null: false, default: ""
       t.integer :cohort_id
       t.integer :survey_response_id
+      t.integer :role_id, default: 3
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

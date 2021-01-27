@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Sign Up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -31,9 +31,26 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <h3>Select Cohort</h3>
+  <div>
+    <%= f.collection_select :cohort_id, Cohort.all, :id, :name, include_blank: "Select Cohort" %>
+  </div>
+
+  <h3>Create/Register Cohort</h3>
+  <%= f.fields_for :cohort, @user.build_cohort do |cb| %>
+    <div>
+      <%= cb.label :name %>
+      <%= cb.text_field :name %>
+      
+      <%= cb.label :program %>
+      <%= cb.text_field :program %>
+      
+      <%= cb.label :time %>
+      <%= cb.text_field :time %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
