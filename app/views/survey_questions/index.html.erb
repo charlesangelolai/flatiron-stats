@@ -1,5 +1,0 @@
-<h1>Surveys</h1>
-
-<% @survey_questions.each do |sq| %>
-  <%= link_to "Phase #{sq.phase_num}", survey_question_path(sq) %>
-<% end %>
