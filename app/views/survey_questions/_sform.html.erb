@@ -1,0 +1,33 @@
+<%= form_with model: survey_questions, local: true do |f| %>
+
+  <%= f.fields_for :survey, survey_questions.build_survey do |sb| %>
+    <%= sb.label :name %>
+    <%= sb.text_field :name %>
+  <% end %>
+
+  <div>
+    <%= f.label :phase_num %>
+    <%= f.number_field :phase_num %>
+  </div>
+  <div>
+    <%= f.label :design_question %>
+    <%= f.text_field :design_question %>
+  </div>
+    
+  <div>
+    <%= f.label :navigation_question %>
+    <%= f.text_field :navigation_question %>
+  </div>
+  
+  <div>
+    <%= f.label :error_handling_question %>
+    <%= f.text_field :error_handling_question %>
+  </div>
+
+  <div>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </div>
+  
+  <%= f.submit button_name %>
+<% end %>
