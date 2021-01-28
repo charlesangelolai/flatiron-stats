@@ -1,0 +1,9 @@
+<h1>Surveys</h1>
+
+<% @surveys.each do |s| %>
+  <div>
+    <%= link_to "Phase #{s.phase_num}", survey_path(s) %>
+  </div>
+<% end %>
+
+<%= link_to "Create New Survey", new_survey_path  %>

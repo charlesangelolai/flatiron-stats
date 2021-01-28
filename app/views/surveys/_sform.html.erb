@@ -1,0 +1,35 @@
+<%= form_with model: survey, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :phase_num %>
+    <%= f.number_field :phase_num %>
+  </div>
+
+  <%= f.fields_for :survey_questions do |sq| %>
+    <div>
+      <%= sq.label :design_question %>
+      <%= sq.text_field :design_question %>
+    </div>
+      
+    <div>
+      <%= sq.label :navigation_question %>
+      <%= sq.text_field :navigation_question %>
+    </div>
+    
+    <div>
+      <%= sq.label :error_handling_question %>
+      <%= sq.text_field :error_handling_question %>
+    </div>
+
+    <div>
+      <%= sq.label :rating %>
+      <%= sq.text_field :rating %>
+    </div>
+  <% end %>
+  
+  <%= f.submit button_name %>
+<% end %>
