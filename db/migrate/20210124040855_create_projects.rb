@@ -9,6 +9,7 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.string :blog_link
       t.string :video_link
       t.integer :user_id
+      t.integer :survey_id
 
       t.timestamps
     end
