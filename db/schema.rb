@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2021_01_26_215702) do
   end
 
   create_table "survey_questions", force: :cascade do |t|
-    t.integer "phase_num"
     t.string "design_question"
     t.string "navigation_question"
     t.string "error_handling_question"
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_215702) do
 
   create_table "surveys", force: :cascade do |t|
     t.string "name"
+    t.integer "phase_num"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
