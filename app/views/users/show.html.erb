@@ -1,0 +1,17 @@
+<%= render partial: "/layouts/subheader", locals: { header_name: "Account Info" } %>
+
+<div>
+  First Name: <%= @user.first_name %>
+</div>
+<div>
+  Last Name: <%= @user.last_name %>
+</div>
+<div>
+  Email: <%= @user.email %>
+</div>
+<div>
+  Cohort: <%= @user.cohort.name %>
+</div>
+<div>
+  Last Active: <%= @user.last_sign_in_at %>
+</div>
