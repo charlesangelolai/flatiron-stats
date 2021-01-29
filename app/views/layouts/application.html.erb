@@ -8,11 +8,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
   </head>
 
   <body>
-    <%= render 'layouts/errors' %>
-    <%= render 'layouts/nav' %>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/dashboard' %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
