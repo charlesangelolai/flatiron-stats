@@ -44,10 +44,10 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <%= link_to account_path(current_user), class: "nav-link" do %>
               <span data-feather="user"></span>
               Profile Settings
-            </a>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, class: "nav-link", method: "DELETE" do %>
@@ -68,14 +68,3 @@
 <script>
   feather.replace()
 </script>
-
-
-<!-- 
-
-  <li><%= current_user.email %></li>
-  <li><%= link_to "Projects", projects_path %></li>
-  <li><%= link_to "Surveys", surveys_path %></li>
-  <li><%= link_to "Cohorts", cohorts_path %></li>
-  <li><%= link_to "Sign Out", destroy_user_session_path, method: "DELETE" %></li>
-
- -->
