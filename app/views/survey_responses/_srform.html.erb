@@ -1,0 +1,20 @@
+<%= form_with model: survey_response, local: true do |f| %>
+  <div>
+    <%= f.label @survey_questions.design_question %>
+    <%= f.text_field :design_response %>
+  </div>
+  <div>
+    <%= f.label @survey_questions.navigation_question %>
+    <%= f.text_field :navigation_response %>
+  </div>
+  <div>
+    <%= f.label @survey_questions.error_handling_question %>
+    <%= f.text_field :error_handling_response %>
+  </div>
+  <div>
+    <%= f.label @survey_questions.rating %>
+    <%= f.text_field :rating_response %>
+  </div>
+  
+  <%= f.submit button_name %>
+<% end %>

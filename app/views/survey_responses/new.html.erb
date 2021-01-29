@@ -1,0 +1,4 @@
+<h3><%= @survey.name %> Survey</h3>
+<h4><%= @project.name %></h4>
+
+<%= render partial: "srform", locals: { survey_response: @survey_response, button_name: "Submit Survey" } %>
