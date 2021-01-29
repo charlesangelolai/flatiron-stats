@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_215702) do
     t.string "blog_link"
     t.string "video_link"
     t.integer "user_id"
-    t.integer "survey_id"
+    t.integer "survey_response_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
