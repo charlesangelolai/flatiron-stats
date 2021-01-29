@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     :sign_up => 'signup'
   }
 
+  # devise_scope :user do
+  #   root to: 'devise/sessions#new'
+  # end
+
   resources :survey_responses
   resources :survey_questions
   resources :surveys
@@ -16,5 +20,7 @@ Rails.application.routes.draw do
     resource :survey_responses
   end
 
-  root to: "static#home"
+  get '/dashboard', to: 'dashboard#index'
+
+  root to: 'static#home'
 end
