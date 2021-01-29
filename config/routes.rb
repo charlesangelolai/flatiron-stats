@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :surveys
   resources :cohorts
   resources :projects
-  resources :surveys, only: [:new] do
-    resource :survey_questions, only: [:new]
+  resources :projects, only: [:show] do
+    resource :survey_responses
   end
 
   root to: "static#home"
