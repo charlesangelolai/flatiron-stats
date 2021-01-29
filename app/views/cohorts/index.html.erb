@@ -1,5 +1,21 @@
-<h1>Cohorts</h1>
+<%= render partial: "/layouts/subheader", locals: { header_name: "Cohorts List" } %>
 
-<% @cohorts.each do |cohort| %>
-  <%= link_to "#{cohort.name}", cohort_path(cohort) %>
-<% end %>
+<table class="table table-striped">
+  <tr>
+    <th>Cohort</th>
+    <th>Program</th>
+    <th>Time</th>
+    <th>Status</th>
+  </tr>
+
+  <% @cohorts.each do |cohort| %>
+    <tr>
+      <td><%= link_to "#{cohort.name}", cohort_path(cohort), class: "link-dark" %></td>
+      <td><%= "#{cohort.program}" %></td>
+      <td><%= "#{cohort.time}" %></td>
+      <td><span class="badge rounded-pill bg-dark text-light"><%= "#{cohort.status}" %></span></td>
+    </tr>
+
+  <% end %>
+
+</table>

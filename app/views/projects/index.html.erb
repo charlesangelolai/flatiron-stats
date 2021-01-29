@@ -1,9 +1,23 @@
-<h1>Projects List</h1>
+<%= render partial: "/layouts/subheader", locals: { header_name: "Projects List" } %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Project Name</th>
+    <th>Created By</th>
+    <th>Phase Number</th>
+    <th>Cohort</th>
+  </tr>
 
   <% @projects.each do |project| %>
-    <div>
-      <%= link_to "Project: #{project.name}", project_path(project) %>
-    </div>
+    <tr>
+      <td><%= link_to "#{project.name}", project_path(project), class: "link-dark" %></td>
+      <td><%= link_to "#{project.user.first_name}  #{project.user.last_name}", project_path(project), class: "link-dark" %></td>
+      <td>Phase <%= "#{project.phase_num}" %></td>
+      <td><%= link_to "#{project.user.cohort.name}", cohort_path(project.user.cohort), class: "link-dark" %></td>
+    </tr>
+
   <% end %>
 
-<%= link_to "Create New Project", new_project_path  %>
+</table>
+
+<%= link_to "Create New Project", new_project_path, class: "btn btn-dark" %>

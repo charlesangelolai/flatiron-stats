@@ -1,9 +1,22 @@
-<h1>Surveys</h1>
+<%= render partial: "/layouts/subheader", locals: { header_name: "Surveys List" } %>
 
-<% @surveys.each do |s| %>
-  <div>
-    <%= link_to "Phase #{s.phase_num}", survey_path(s) %>
-  </div>
-<% end %>
+<table class="table table-striped">
+  <tr>
+    <th>Survey Name</th>
+    <th>Phase Number</th>
+    <th>Created At</th>
+  </tr>
 
-<%= link_to "Create New Survey", new_survey_path  %>
+  <% @surveys.each do |survey| %>
+    <tr>
+      <td><%= link_to "#{survey.name}", survey_path(survey), class: "link-dark" %></td>
+      <td>Phase <%= "#{survey.phase_num}" %></td>
+      <td><%= "#{survey.created_at}" %></td>
+    </tr>
+
+  <% end %>
+
+</table>
+
+
+<%= link_to "Create New Survey", new_survey_path, class: "btn btn-dark"  %>
