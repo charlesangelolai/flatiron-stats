@@ -13,13 +13,24 @@ before_action :find_response, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    
+    @project = Project.find_by_id(params[:project_id])
+    @survey = Survey.find_by(phase_num: @project.phase_num)
   end
 
   def create
-    @survey_response = SurveyResponse.new(survey_params)
+    @project = Project.find_by(params[:project_id])
+    @project_user = @project.user
+    @survey = Survey.find_by(phase_num: @project.phase_num)
+
+    params[:survey_response][:project_id] = @project.id
+    params[:survey_response][:survey_id] = @survey.id
+    params[:survey_response][:user_id] = @project_user.id
+    
+    @survey_questions = SurveyQuestion.find_by_id(@survey.id)
+    @survey_response = SurveyResponse.new(survey_response_params)
+
     if @survey_response.save
-      redirect_to survey_response_path(@survey_response)
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -53,7 +64,10 @@ before_action :find_response, only: [:show, :edit, :update, :destroy]
       :design_response,
       :navigation_response,
       :error_handling_response,
-      :rating_response
+      :rating_response,
+      :project_id,
+      :survey_id,
+      :user_id
     )
   end
 end
