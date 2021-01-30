@@ -1,8 +1,9 @@
 <div class="container">
   <main class="form-signin position-absolute top-50 start-50 translate-middle" style="text-align: center !important;">
-    <h1 class="pb-4">Welcome to FlatironStats!</h1>
+    <span data-feather="bar-chart-2" style="height: 60px; width: 60px;"></span>
+    <h1 class="pb-2">Welcome to FlatironStats!</h1>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <h3 class="mb-3 fw-normal"><span data-feather="log-in" style="height: 35px; width: 35px;"></span>&nbsp;&nbsp; Log In</h2>
+      <h3 class="mb-1 fw-normal"><span data-feather="log-in" style="height: 35px; width: 35px;"></span>&nbsp;&nbsp; Log In</h2>
       <div class="field">
         <%= f.label :email, class:"visually-hidden" %><br />
         <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
