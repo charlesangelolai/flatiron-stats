@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  include ApplicationHelper
+  include PublicActivity::StoreController
+  include ApplicationHelper 
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
