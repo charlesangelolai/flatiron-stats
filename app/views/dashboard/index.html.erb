@@ -1,1 +1,9 @@
 <%= render partial: "/layouts/subheader", locals: { header_name: "Dashboard" } %>
+
+<h4>Activity Feed</h4>
+<div class="activity-feed">
+  <% @activities.each do |activity| %>
+      <%= render_activity activity %>
+  <% end %>
+</div>
+
