@@ -46,7 +46,7 @@
         <%= f.fields_for :cohort, @user.build_cohort do |cb| %>
             
               <%= cb.label "Start Date" %>
-              <%= cb.date_select :name, {}, { class: "form-select mb-1" } %>
+              <%= cb.date_select :name, { prompt: { day: "Select Day", month: "Select Month", year: "Select Year" } }, { class: "form-select mb-1" } %>
 
               <%= cb.label :program %>
               <%= cb.select :program, options_for_select(["Software Engineering", "Data Science"]), { include_blank: "Select Program" }, { class: "form-select mb-1" } %>

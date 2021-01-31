@@ -1,5 +1,5 @@
 class SurveyResponsesController < ApplicationController
-before_action :find_response, only: [:show, :edit, :update, :destroy]
+  before_action :find_response, only: [:show, :edit, :update, :destroy]
 
   def index
     @survey_responses = SurveyResponse.all
