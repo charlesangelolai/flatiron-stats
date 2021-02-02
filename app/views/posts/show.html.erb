@@ -1,0 +1,7 @@
+<%= render partial: "/layouts/subheader", locals: { header_name: "#{@post.title}" } %>
+
+<div>
+  <%= @post.content %>
+</div>
+
+<%= render "comments/show" %>
