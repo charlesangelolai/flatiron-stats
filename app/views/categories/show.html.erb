@@ -1,0 +1,26 @@
+<%= render partial: "/layouts/subheader", locals: { header_name: "#{@category.name}" } %>
+
+<div>
+  Description: <%= @category.description %>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Total Comments</th>
+    <th>Created By</th>
+    <th>Created At</th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to "#{post.title}", category_post_path(@category, post), class: "link-dark" %></td>
+      <td><%= "#{post.comments.count}" %></td>
+      <td><%= "#{post.user.first_name} #{post.user.last_name}" %></td>
+      <td><%= "#{post.created_at}" %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<%= link_to "Create New Post", new_category_post_path(@category), class: "btn btn-dark" %>
