@@ -1,0 +1,6 @@
+<%= form_for [category, post, comment], local: true do |f| %>
+  <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+    <%= f.text_field :content, class: "form-control", style: "margin-right: 1rem !important", placeholder: "Add comment" %>
+    <%= f.submit button_name, class: "btn btn-primary" %>
+  </div>
+<% end %>
