@@ -1,4 +1,4 @@
-<%= form_with model: survey_response, local: true do |f| %>
+<%= form_for [project, survey_response], local: true do |f| %>
   <div>
     <%= f.label @survey_questions.design_question %>
     <%= f.text_field :design_response %>

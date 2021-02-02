@@ -1,4 +1,4 @@
-<h1>Project Info</h1>
+<%= render partial: "/layouts/header", locals: { header_name: "Project Info" } %>
 
 <div>
   <p>Name: <%= @project.name %></p>
@@ -14,3 +14,22 @@
 <%= link_to "Edit", edit_project_path(@project) %>
 <%= link_to "Delete", project_path(@project), method: "delete" %>
 <%= link_to "Survey", new_project_survey_responses_path(@project) %>
+
+<br><br>
+
+<div>
+    <h4>Survey Results:</h4>
+    <h6>Total Surveys: <%= @survey_count %> </h6>
+  <div>
+    Design Score: <%= @design_score %> / 5.00
+  </div>
+  <div>
+    Navigation Score: <%= @navigation_score %> / 5.00
+  </div>
+  <div>
+    Error Handling Score: <%= @error_handling_score %> / 5.00
+  </div>
+  <div>
+    Overall Rating: <%= @rating_score %> / 5.00
+  </div>
+</div>
