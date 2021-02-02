@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    project_report
   end
 
   def create
@@ -44,6 +45,15 @@ class ProjectsController < ApplicationController
 
   def find_project
     @project = Project.find_by_id(params[:id])
+  end
+
+  def project_report
+    #Project.first.survey_responses.calculate(:average, :design_response).to_f.round(2)
+    @survey_count = @project.survey_responses.count
+    @design_score = @project.survey_responses.calculate(:average, :design_response).to_f.round(2)
+    @navigation_score = @project.survey_responses.calculate(:average, :navigation_response).to_f.round(2)
+    @error_handling_score = @project.survey_responses.calculate(:average, :error_handling_response).to_f.round(2)
+    @rating_score = ((@design_score + @navigation_score + @error_handling_score)/3.00).round(2)
   end
 
   def project_params
