@@ -11,9 +11,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    year = params[:user][:cohort_attributes]["name(1i)"]
+    month = params[:user][:cohort_attributes]["name(2i)"]
+    day = params[:user][:cohort_attributes]["name(3i)"]
+    program = params[:user][:cohort_attributes][:program]
+    time = params[:user][:cohort_attributes][:time]
+
+    params[:user][:cohort_attributes].delete("name(1i)")
+    params[:user][:cohort_attributes].delete("name(2i)")
+    params[:user][:cohort_attributes].delete("name(3i)")
+    
+    full_date = format_date(year, month, day)
+    params[:user][:cohort_attributes][:name] = format_cohort_name(full_date, program, time)
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -46,7 +58,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    #redirect_to [current_account, resource]
     account_path(current_user)
   end
 
