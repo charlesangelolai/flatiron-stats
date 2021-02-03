@@ -1,10 +1,10 @@
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  resources :comments
-  resources :replies
-  resources :posts
-  resources :categories
   devise_for :users,
+  :controllers => {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  },
   :path_names => {
     :sign_in => 'login',
     :sign_out => 'logout',
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'dashboard#index'
+  get '/users/cohort', to: 'users#oauth_cohort'
   get '/account/:id', to: 'users#show', as: 'account'
 
   # root to: 'static#home'
