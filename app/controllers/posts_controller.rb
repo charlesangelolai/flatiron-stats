@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :redirect_if_no_cohort
+  
   def index
     @posts = Post.all
   end

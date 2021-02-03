@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show]
-
-  def index
-  end
+  before_action :redirect_if_no_cohort
 
   def show
   end
@@ -11,8 +9,5 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find_by_id(params[:id])
-  end
-
-  def user_params
   end
 end

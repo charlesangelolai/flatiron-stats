@@ -1,5 +1,6 @@
 class CohortsController < ApplicationController
   before_action :find_cohort, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_no_cohort
   
   def index
     @cohorts = Cohort.all

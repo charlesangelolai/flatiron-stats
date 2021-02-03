@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
   before_action :find_survey, only: [:show, :edit, :update, :destroy]
-
+  before_action :redirect_if_no_cohort
+  
   def index
     @surveys = Survey.all
   end

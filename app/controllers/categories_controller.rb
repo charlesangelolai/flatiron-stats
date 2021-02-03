@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
   before_action :find_posts, only: [:show]
-
+  before_action :redirect_if_no_cohort
+  
   def index
     @categories = Category.all
   end

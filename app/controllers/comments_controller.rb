@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :redirect_if_no_cohort
+  
   def create
     @user = current_user
     @post = Post.find_by_id(params[:post_id])

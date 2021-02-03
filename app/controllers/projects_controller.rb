@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :redirect_if_no_cohort
+  
   def index
     @projects = Project.all
   end
