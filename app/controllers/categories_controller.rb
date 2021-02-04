@@ -1,7 +1,10 @@
 class CategoriesController < ApplicationController
+  include CategoriesHelper
+
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   before_action :find_category, only: [:show, :edit, :update, :destroy]
   before_action :find_posts, only: [:show]
-  before_action :redirect_if_no_cohort
+  before_action :redirect_if_not_admin, except: [:index, :show]
   
   def index
     @categories = Category.all
@@ -47,6 +50,12 @@ class CategoriesController < ApplicationController
 
   def find_category
     @category = Category.find_by_id(params[:id])
+  end
+
+  def redirect_if_not_admin
+    unless is_admin?
+      redirect_to category_path(@category)
+    end
   end
 
   def category_params

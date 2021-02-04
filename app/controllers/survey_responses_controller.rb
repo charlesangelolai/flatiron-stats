@@ -1,6 +1,6 @@
 class SurveyResponsesController < ApplicationController
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   before_action :find_response, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_if_no_cohort
   
   def index
     @survey_responses = SurveyResponse.all

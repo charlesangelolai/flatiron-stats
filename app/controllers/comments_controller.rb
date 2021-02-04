@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :redirect_if_no_cohort
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   
   def create
     @user = current_user

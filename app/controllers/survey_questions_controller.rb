@@ -1,4 +1,5 @@
 class SurveyQuestionsController < ApplicationController
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   # before_action :find_survey_questions, only: [:show, :edit, :update, :destroy]
 
   # def index

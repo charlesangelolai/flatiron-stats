@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_if_no_cohort
+  include ProjectsHelper
   
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
+  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_project_not_found, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_not_admin_or_owner, only: [:edit, :update, :destroy]
+
   def index
     @projects = Project.all
   end
@@ -48,8 +52,19 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_id(params[:id])
   end
 
+  def redirect_if_project_not_found
+    unless @project
+      redirect_to projects_path
+    end
+  end
+
+  def redirect_if_not_admin_or_owner
+    unless @project.user == current_user
+      redirect_to projects_path
+    end
+  end
+
   def project_report
-    #Project.first.survey_responses.calculate(:average, :design_response).to_f.round(2)
     @survey_count = @project.survey_responses.count
     @design_score = @project.survey_responses.calculate(:average, :design_response).to_f.round(2)
     @navigation_score = @project.survey_responses.calculate(:average, :navigation_response).to_f.round(2)

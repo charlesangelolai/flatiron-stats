@@ -1,6 +1,8 @@
 class SurveysController < ApplicationController
+  include SurveysHelper
+
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort, :redirect_if_not_admin
   before_action :find_survey, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_if_no_cohort
   
   def index
     @surveys = Survey.all
@@ -44,6 +46,12 @@ class SurveysController < ApplicationController
 
   def find_survey
     @survey = Survey.find_by_id(params[:id])
+  end
+
+  def redirect_if_not_admin
+    unless is_admin?
+      redirect_to dashboard_path
+    end
   end
 
   def survey_params

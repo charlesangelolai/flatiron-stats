@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
+  include PostsHelper
+
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   before_action :find_post, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_if_no_cohort
+  before_action :find_category, only: [:new, :create, :edit, :update]
+  before_action :redirect_if_not_admin_or_owner, only: [:edit, :update, :destroy]
   
   def index
     @posts = Post.all
@@ -8,18 +12,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @category = Category.find_by_id(params[:category_id])
   end
   
   def show
-    @category = Category.find_by_id(params[:category_id])
     @comment = Comment.new
     @comments = @post.comments
   end
 
   def create
-    @category = Category.find_by_id(params[:category_id])
-    
     params[:post][:category_id] = @category.id
     params[:post][:user_id] = current_user.id
     
@@ -52,6 +52,16 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.find_by_id(params[:id])
+  end
+
+  def find_category
+    @category = Category.find_by_id(params[:category_id])
+  end
+
+  def redirect_if_not_admin_or_owner
+    unless is_admin? || @post.user == current_user
+      redirect_to category_post_path(@post)
+    end
   end
 
   def post_params

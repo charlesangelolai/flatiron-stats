@@ -1,6 +1,10 @@
 class CohortsController < ApplicationController
+  include CohortsHelper
+
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
+  before_action :redirect_if_not_admin, only: [:edit, :update, :destroy]
   before_action :find_cohort, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_if_no_cohort
+  before_action :find_students, only: [:show]
   
   def index
     @cohorts = Cohort.all
@@ -50,6 +54,16 @@ class CohortsController < ApplicationController
   def find_cohort
     @cohort = Cohort.find_by_id(params[:id])
     @students = @cohort.users
+  end
+
+  def find_students
+    @students = @cohort.users
+  end
+
+  def redirect_if_not_admin
+    unless is_admin?
+      redirect_to cohorts_path
+    end
   end
 
   def cohort_student_params

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   before_action :find_user, only: [:show]
-  before_action :redirect_if_no_cohort
 
   def show
   end
