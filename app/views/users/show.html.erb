@@ -1,19 +1,52 @@
 <%= render partial: "/layouts/header", locals: { header_name: "Profile Info" } %>
 
-<div>
-  First Name: <%= @user.first_name %>
-</div>
-<div>
-  Last Name: <%= @user.last_name %>
-</div>
-<div>
-  Email: <%= @user.email %>
-</div>
-<div>
-  Cohort: <%= @user.cohort.name %>
-</div>
-<div>
-  Last Active: <%= @user.last_sign_in_at %>
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">First Name</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @user.first_name %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">Last Name</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @user.last_name %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">Email</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @user.email %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">Cohort</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @user.cohort.name %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">Last Active</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @user.last_sign_in_at %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Edit", edit_user_registration_path %>
+<%= link_to "Edit", edit_user_registration_path, class: "btn btn-sm btn-dark" %>
