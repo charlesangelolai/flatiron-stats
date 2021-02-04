@@ -1,7 +1,7 @@
 <%= render partial: "/layouts/header", locals: { header_name: "#{@category.name}" } %>
 
-<div>
-  Description: <%= @category.description %>
+<div class="mt-3 mb-3">
+  <p class="fst-italic"><%= @category.description %></p>
 </div>
 
 <table class="table table-striped">
