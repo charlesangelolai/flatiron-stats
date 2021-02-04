@@ -54,7 +54,7 @@ class CategoriesController < ApplicationController
 
   def redirect_if_not_admin
     unless is_admin?
-      redirect_to category_path(@category)
+      redirect_to categories_path
     end
   end
 

@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
+  before_action :find_category, :find_post, :find_comments, only: [:create, :edit, :update, :destroy]
+  before_action :find_comment, only: [:edit, :update, :destroy]
   
   def create
     @user = current_user
-    @post = Post.find_by_id(params[:post_id])
-    @category = Category.find_by_id(params[:category_id])
 
     params[:comment][:post_id] = @post.id
     params[:comment][:user_id] = @user.id
@@ -22,8 +22,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to comment_path(@comment)
+    if @comment.update(comment_update_params)
+      redirect_to category_post_path(@category, @post)
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to comments_path
+    redirect_to category_post_path(@category, @post)
   end
 
   private
@@ -40,11 +40,27 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by_id(params[:id])
   end
 
+  def find_post
+    @post = Post.find_by_id(params[:post_id])
+  end
+
+  def find_category
+    @category = Category.find_by_id(params[:category_id])
+  end
+
+  def find_comments
+    @comments = @post.comments
+  end
+
   def comment_params
     params.require(:comment).permit(
       :content,
       :post_id,
       :user_id
     )
+  end
+
+  def comment_update_params
+    params.require(:comment).permit(:content)
   end
 end
