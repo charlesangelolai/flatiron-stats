@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'dashboard#index'
-  get '/users/cohort', to: 'users#oauth_cohort'
   get '/account/:id', to: 'users#show', as: 'account'
 
   # root to: 'static#home'
