@@ -18,9 +18,11 @@
                     </div>
                     <div class="action d-flex justify-content-between mt-2 align-items-center">
                         <div class="reply">
-                            <small>Edit</small>
+                            <small><%= link_to "Edit", edit_category_post_comment_path(@category, @post, comment) %></small>
+
+                            
                             <span class="dots"></span>
-                            <small>Remove</small>
+                            <small><%= link_to "Remove", category_post_comment_path(@category, @post, comment), method: "delete" %></small>
                         </div>
                     </div>
                 </div>
