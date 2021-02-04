@@ -1,7 +1,49 @@
 <%= render partial: "/layouts/header", locals: { header_name: @cohort.name } %>
 
-<div>
-  <%= @cohort.program %><br>
-  <%= @cohort.time %><br>
-  <%= @cohort.status %><br>
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">Program</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @cohort.program %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">Time</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @cohort.time %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <h6 class="mb-0">Status</h6>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <%= @cohort.status %><br>
+      </div>
+    </div>
+  </div>
 </div>
+
+<table class="table table-striped">
+  <tr>
+    <th>Full Name</th>
+    <th>Total Projects</th>
+    <th>Date Joined</th>
+  </tr>
+
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= link_to "#{student.first_name} #{student.last_name}", account_path(student), class: "link-dark" %></td>
+      <td><%= "#{student.projects.count}" %></td>
+      <td><%= "#{student.created_at}" %></td>
+    </tr>
+  <% end %>
+
+</table>
