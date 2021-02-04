@@ -1,31 +1,31 @@
 <%= form_with model: project, local: true do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :phase_num %>
-    <%= f.number_field :phase_num %>
+    <%= f.select :phase_num, options_for_select(["1", "2", "3", "4", "5"]), { include_blank: "Select Phase" }, { class: "form-select mb-1" } %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :website_link %>
-    <%= f.text_field :website_link %>
+    <%= f.text_field :website_link, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :github_link %>
-    <%= f.text_field :github_link %>
+    <%= f.text_field :github_link, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :blog_link %>
-    <%= f.text_field :blog_link %>
+    <%= f.text_field :blog_link, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :video_link %>
-    <%= f.text_field :video_link %>
+    <%= f.text_field :video_link, class: "form-control" %>
   </div>
-  <%= f.submit button_name %>
+  <%= f.submit button_name, class: "btn btn-dark mt-3" %>
 <% end %>

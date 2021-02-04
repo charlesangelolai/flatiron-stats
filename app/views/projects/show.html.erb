@@ -1,35 +1,46 @@
 <%= render partial: "/layouts/header", locals: { header_name: "Project Info" } %>
 
-<div>
-  <p>Name: <%= @project.name %></p>
-  <p>Phase Number: <%= @project.phase_num %></p>
-  <p>Description: <%= @project.description %></p>
-  <p>Website Link: <%= @project.website_link %></p>
-  <p>GitHub Link: <%= @project.github_link %></p>
-  <p>Blog Link: <%= @project.blog_link %></p>
-  <p>Video Link: <%= @project.video_link %></p>
-  <p>Date Posted: <%= @project.created_at %></p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= @project.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Phase <%= @project.phase_num %></h6>
+    <p class="card-text"><%= @project.description %></p>
+
+    <%= link_to "Website Link", "#{@project.website_link}", class: "card-link" %>
+    <%= link_to "Github Link", "#{@project.github_link}", class: "card-link" %>
+    <%= link_to "Blog Link", "#{@project.blog_link}", class: "card-link" %>
+    <%= link_to "Video Link", "#{@project.video_link}", class: "card-link" %>
+  </div>
 </div>
 
-<%= link_to "Edit", edit_project_path(@project) %>
-<%= link_to "Delete", project_path(@project), method: "delete" %>
-<%= link_to "Survey", new_project_survey_responses_path(@project) %>
+<br>
+<%= link_to "Edit", edit_project_path(@project), class: "btn btn-sm btn-dark" %>
+<%= link_to "Delete", project_path(@project), method: "delete", class: "btn btn-sm btn-dark" %>
+<%= link_to "Submit Survey", new_project_survey_responses_path(@project), class: "btn btn-sm btn-dark" %>
 
-<br><br>
-
-<div>
-    <h4>Survey Results:</h4>
-    <h6>Total Surveys: <%= @survey_count %> </h6>
-  <div>
-    Design Score: <%= @design_score %> / 5.00
-  </div>
-  <div>
-    Navigation Score: <%= @navigation_score %> / 5.00
-  </div>
-  <div>
-    Error Handling Score: <%= @error_handling_score %> / 5.00
-  </div>
-  <div>
-    Overall Rating: <%= @rating_score %> / 5.00
+<div class="row gutters-sm mt-3">
+  <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="d-flex align-items-center mb-2">Survey Results</h5>
+        <h6 class="d-flex align-items-center mb-3 text-muted">Total Surveys: <%= @survey_count %> </h6>
+        <small>Design Score: <%= @design_score %> / 5.00</small>
+        <div class="progress mb-3" style="height: 5px">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: <%= (@design_score / 5) * 100.00 %>%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <small>Navigation Score: <%= @navigation_score %> / 5.00</small>
+        <div class="progress mb-3" style="height: 5px">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: <%= (@navigation_score / 5) * 100.00 %>%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <small>Error Handling Score: <%= @navigation_score %> / 5.00</small>
+        <div class="progress mb-3" style="height: 5px">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: <%= (@error_handling_score / 5) * 100.00 %>%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <small>Overall Score: <%= @rating_score %> / 5.00</small>
+        <div class="progress mb-3" style="height: 5px">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: <%= (@rating_score / 5) * 100.00 %>%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
