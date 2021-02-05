@@ -1,6 +1,6 @@
 <% if activity.trackable %>
   <div class="feed-item">
     <div class="date"><%= activity.trackable.created_at %></div>
-    <div class="text"><%= link_to "#{activity.trackable.first_name} #{activity.trackable.last_name}", account_path(activity.trackable.id), class: "link-dark" %> just joined FlatironStats!</div>
+    <div class="text"><%= link_to "#{activity.trackable.first_name} #{activity.trackable.last_name}", user_path(activity.trackable.id), class: "link-dark" %> just joined FlatironStats!</div>
   </div>
 <% end %>

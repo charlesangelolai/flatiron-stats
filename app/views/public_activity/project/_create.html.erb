@@ -2,7 +2,7 @@
   <div class="feed-item">
     <div class="date"><%= activity.trackable.created_at %></div>
     <div class="text">
-      <%= link_to "#{ activity.owner.first_name } #{ activity.owner.last_name }", account_path(activity.trackable.id), class: "link-dark" %> just shared a phase <%= activity.trackable.phase_num %> project called <%= link_to "#{ activity.trackable.name }", project_path(activity.trackable.id), class: 'link-dark' %>
+      <%= link_to "#{ activity.owner.first_name } #{ activity.owner.last_name }", user_path(activity.trackable.id), class: "link-dark" %> just shared a phase <%= activity.trackable.phase_num %> project called <%= link_to "#{ activity.trackable.name }", project_path(activity.trackable.id), class: 'link-dark' %>
     </div>
   </div>
 <% end %>
