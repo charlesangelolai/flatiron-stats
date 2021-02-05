@@ -1,9 +1,26 @@
-<h1>Users</h1>
+<%= render partial: "/layouts/header", locals: { header_name: "Users List" } %>
 
-<ul>
+<table class="table table-striped">
+  <tr>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Cohort</th>
+    <th>Total Projects</th>
+    <th>Date Joined</th>
+    <th>Last Active</th>
+    <th>Actions</th>
+  </tr>
+
   <% @users.each do |user| %>
-    <li>
-      <%= link_to user.full_name, user %>
-    </li>
+    <tr>
+      <td><%= link_to user.full_name, user_path(user), class: "link-dark" %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to user.cohort.name, cohort_path(user.cohort), class: "link-dark" %> </td>
+      <td><%= user.projects.count %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <th><%= link_to "Edit", edit_user_path(user), class: "link-dark" %> | <%= link_to "Delete", user_path(user), method: "delete", class: "link-dark" %></th>
+    </tr>
   <% end %>
-</ul>
+
+</table>

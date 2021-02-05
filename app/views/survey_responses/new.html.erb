@@ -1,4 +1,5 @@
-<h3><%= @survey.name %> Survey</h3>
-<h4><%= @project.name %></h4>
+<%= render partial: "/layouts/header", locals: { header_name: @survey.name } %>
+
+<h4>Project Name: <%= @project.name %></h4>
 
 <%= render partial: "srform", locals: { project: @project, survey_response: @survey_response, button_name: "Submit Survey" } %>

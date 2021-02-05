@@ -1,7 +1,12 @@
 <%= render partial: "/layouts/header", locals: { header_name: "#{@post.title}" } %>
 
 <div class="mt-1 mb-1">
-  <p><%= @post.content %></p>
+  <p><%= "#{@post.user.full_name} - #{@post.content}"%></p>
 </div>
+
+<% if is_admin? || @post.user == current_user %>
+  <%= link_to "Edit", edit_category_post_path(@category, @post), class: "btn btn-sm btn-dark" %>
+  <%= link_to "Delete", category_post_path(@category, @post), method: "delete", class: "btn btn-sm btn-dark" %>
+<% end %>
 
 <%= render "comments/show" %>

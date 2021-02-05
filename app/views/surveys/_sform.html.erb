@@ -1,35 +1,39 @@
 <%= form_with model: survey, local: true do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :phase_num %>
-    <%= f.number_field :phase_num %>
+    <%= f.select :phase_num, options_for_select(["1", "2", "3", "4", "5"], survey.phase_num.to_s ), { include_blank: "Select Phase" }, { class: "form-select mb-1" } %>
   </div>
+
+
 
   <%= f.fields_for :survey_questions do |sq| %>
-    <div>
+    <%= sq.hidden_field :id %>
+    
+    <div class="form-group">
       <%= sq.label :design_question %>
-      <%= sq.text_field :design_question %>
+      <%= sq.text_field :design_question, class: "form-control" %>
     </div>
       
-    <div>
+    <div class="form-group">
       <%= sq.label :navigation_question %>
-      <%= sq.text_field :navigation_question %>
+      <%= sq.text_field :navigation_question, class: "form-control" %>
     </div>
     
-    <div>
+    <div class="form-group">
       <%= sq.label :error_handling_question %>
-      <%= sq.text_field :error_handling_question %>
+      <%= sq.text_field :error_handling_question, class: "form-control" %>
     </div>
 
-    <div>
+    <div class="form-group">
       <%= sq.label :rating %>
-      <%= sq.text_field :rating %>
+      <%= sq.text_field :rating, class: "form-control" %>
     </div>
   <% end %>
   
-  <%= f.submit button_name %>
+  <%= f.submit button_name, class: "btn btn-dark mt-3" %>
 <% end %>

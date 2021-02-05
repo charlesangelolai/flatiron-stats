@@ -1,8 +1,15 @@
-<h1>Survey Info</h1>
+<%= render partial: "/layouts/header", locals: { header_name: "Survey Questions" } %>
 
+<div class="mt-2">
+  <h4 class="mb-2"><%= @survey.name %></h4>
 
-<%= @survey.name %><br>
-<%= @survey.survey_questions.first.design_question %><br>
-<%= @survey.survey_questions.first.navigation_question %><br>
-<%= @survey.survey_questions.first.error_handling_question %><br>
-<%= @survey.survey_questions.first.rating %><br>
+  <h6><%= @survey.survey_questions.first.design_question %></h6>
+  <h6><%= @survey.survey_questions.first.navigation_question %></h6>
+  <h6><%= @survey.survey_questions.first.error_handling_question %></h6>
+  <h6><%= @survey.survey_questions.first.rating %></h6>
+</div>
+
+<div class="mt-3">
+  <%= link_to "Edit", edit_survey_path(@survey), class: "btn btn-sm btn-dark" %>
+  <%= link_to "Delete", "#", method: "delete", class: "btn btn-sm btn-dark" %>
+</div>

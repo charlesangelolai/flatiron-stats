@@ -1,20 +1,87 @@
 <%= form_for [project, survey_response], local: true do |f| %>
-  <div>
-    <%= f.label @survey_questions.design_question %>
-    <%= f.text_field :design_response %>
-  </div>
-  <div>
-    <%= f.label @survey_questions.navigation_question %>
-    <%= f.text_field :navigation_response %>
-  </div>
-  <div>
-    <%= f.label @survey_questions.error_handling_question %>
-    <%= f.text_field :error_handling_response %>
-  </div>
-  <div>
-    <%= f.label @survey_questions.rating %>
-    <%= f.text_field :rating_response %>
-  </div>
+  <div class="container mt-3 mb-3">
+    
+    <div class="mb-1">
+      <h6><%= f.label @survey_questions.design_question %></h6>
+    </div>
+    
+    <div class="mb-2">
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :design_response, 1, class: "form-check-input" %>
+          <%= f.label :design_response, 1, :value => 1, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :design_response, 2, class: "form-check-input" %>
+          <%= f.label :design_response, 2, :value => 2, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :design_response, 3, class: "form-check-input" %>
+          <%= f.label :design_response, 3, :value => 3, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :design_response, 4, class: "form-check-input" %>
+          <%= f.label :design_response, 4, :value => 4, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :design_response, 5, class: "form-check-input" %>
+          <%= f.label :design_response, 5, :value => 5, class: "form-check-label" %>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <h6><%= f.label @survey_questions.navigation_question %></h6>
+    </div>
+    
+    <div class="mb-2">
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :navigation_response, 1, class: "form-check-input" %>
+          <%= f.label :navigation_response, 1, :value => 1, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :navigation_response, 2, class: "form-check-input" %>
+          <%= f.label :navigation_response, 2, :value => 2, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :navigation_response, 3, class: "form-check-input" %>
+          <%= f.label :navigation_response, 3, :value => 3, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :navigation_response, 4, class: "form-check-input" %>
+          <%= f.label :navigation_response, 4, :value => 4, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :navigation_response, 5, class: "form-check-input" %>
+          <%= f.label :navigation_response, 5, :value => 5, class: "form-check-label" %>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <div class="mb-1">
+        <h6><%= f.label @survey_questions.error_handling_question %></h6>
+      </div>
+      
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :error_handling_response, 1, class: "form-check-input" %>
+          <%= f.label :error_handling_response, 1, :value => 1, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :error_handling_response, 2, class: "form-check-input" %>
+          <%= f.label :error_handling_response, 2, :value => 2, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :error_handling_response, 3, class: "form-check-input" %>
+          <%= f.label :error_handling_response, 3, :value => 3, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :error_handling_response, 4, class: "form-check-input" %>
+          <%= f.label :error_handling_response, 4, :value => 4, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+          <%= f.radio_button :error_handling_response, 5, class: "form-check-input" %>
+          <%= f.label :error_handling_response, 5, :value => 5, class: "form-check-label" %>
+      </div>
+    </div>
   
-  <%= f.submit button_name %>
+  </div>
+  <%= f.submit button_name, class: "btn btn-sm btn-dark" %>
 <% end %>

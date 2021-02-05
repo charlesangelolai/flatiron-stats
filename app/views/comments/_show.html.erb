@@ -18,11 +18,11 @@
                     </div>
                     <div class="action d-flex justify-content-between mt-2 align-items-center">
                         <div class="reply">
-                            <small><%= link_to "Edit", edit_category_post_comment_path(@category, @post, comment) %></small>
-
-                            
-                            <span class="dots"></span>
-                            <small><%= link_to "Remove", category_post_comment_path(@category, @post, comment), method: "delete" %></small>
+                            <% if is_admin? || comment.user == current_user %>
+                                <small><%= link_to "Edit", edit_category_post_comment_path(@category, @post, comment) %></small>
+                                <span class="dots"></span>
+                                <small><%= link_to "Remove", category_post_comment_path(@category, @post, comment), method: "delete" %></small>
+                            <% end %>
                         </div>
                     </div>
                 </div>
