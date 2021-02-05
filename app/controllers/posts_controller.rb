@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   include PostsHelper
 
   before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
-  before_action :find_comment, only: [:edit, :update, :destroy]
-  before_action :find_category, only: [:new, :show, :create, :edit, :update]
+  before_action :find_category, only: [:new, :show, :create, :edit, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :find_comments, only: [:show, :edit, :update]
   before_action :redirect_if_not_admin_or_owner, only: [:edit, :update, :destroy]
@@ -46,7 +45,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to category_path(@category)
   end
 
   private
