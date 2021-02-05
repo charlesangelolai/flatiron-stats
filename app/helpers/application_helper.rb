@@ -7,6 +7,10 @@ module ApplicationHelper
     current_user.role_id == 2
   end
 
+  def is_admin_or_owner
+    is_admin? || @user == current_user
+  end
+
   def alert_class_by_type(alert_type)
     case alert_type.to_sym
     when :alert, :danger, :error, :validation_errors
