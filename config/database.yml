@@ -13,6 +13,7 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: flatiron_students_production
   username: flatiron_students
   password: <%= ENV['FLATIRON_STUDENTS_DATABASE_PASSWORD'] %>
