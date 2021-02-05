@@ -1,6 +1,6 @@
 class Survey < ApplicationRecord
-  has_many :survey_questions
-  has_many :survey_responses
+  has_many :survey_questions, dependent: :delete_all
+  has_many :survey_responses, dependent: :delete_all
 
   validates :name, presence: true
   validates :phase_num, presence: true

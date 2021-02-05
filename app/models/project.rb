@@ -11,5 +11,5 @@ class Project < ApplicationRecord
   validates :video_link, presence: true
 
   belongs_to :user
-  has_many :survey_responses
+  has_many :survey_responses, dependent: :delete_all
 end
