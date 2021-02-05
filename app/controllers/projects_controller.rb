@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
 
   def redirect_if_not_admin_or_owner
     unless @project.user == current_user
-      redirect_to projects_path
+      redirect_to project_path(@project)
     end
   end
 
