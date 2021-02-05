@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <%= render'shared/alert' %>
     <% if user_signed_in? %>
       <%= render 'layouts/dashboard' %>
     <% else %>
