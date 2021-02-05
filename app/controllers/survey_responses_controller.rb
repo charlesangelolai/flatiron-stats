@@ -1,29 +1,22 @@
 class SurveyResponsesController < ApplicationController
   before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   before_action :find_response, only: [:show, :edit, :update, :destroy]
-  
+  before_action :find_project, :find_survey, only: [:new, :show, :create]
+  before_action :find_survey_questions, only: [:new, :create]
+  before_action :find_project_user, only: [:create]
+
   def index
     @survey_responses = SurveyResponse.all
   end
 
   def new
-    @project = Project.find_by_id(params[:project_id])
-    @survey = Survey.find_by(phase_num: @project.phase_num)
-    @survey_questions = SurveyQuestion.find_by_id(@survey.id)
     @survey_response = SurveyResponse.new
   end
 
   def show
-    @project = Project.find_by_id(params[:project_id])
-    @survey = Survey.find_by(phase_num: @project.phase_num)
   end
 
   def create
-    @project = Project.find_by_id(params[:project_id])
-    @project_user = @project.user
-    @survey = Survey.find_by(phase_num: @project.phase_num)
-    @survey_questions = SurveyQuestion.find_by_id(@survey.id)
-
     params[:survey_response][:project_id] = @project.id
     params[:survey_response][:survey_id] = @survey.id
     params[:survey_response][:user_id] = @project_user.id
@@ -58,6 +51,22 @@ class SurveyResponsesController < ApplicationController
 
   def find_survey_response
     @survey_response = SurveyResponse.find_by_id(params[:id])
+  end
+
+  def find_project
+    @project = Project.find_by_id(params[:project_id])
+  end
+
+  def find_survey
+    @survey = Survey.find_by(phase_num: @project.phase_num)
+  end
+
+  def find_survey_questions
+    @survey_questions = SurveyQuestion.find_by_id(@survey.id)
+  end
+
+  def find_project_user
+    @project_user = @project.user
   end
 
   def survey_response_params
