@@ -10,7 +10,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="user d-flex flex-row align-items-center">
                             <span>
-                                <small class="font-weight-bold text-primary"><%= link_to "#{comment.user.first_name} #{comment.user.last_name}", account_path(comment.user), class: "text-decoration-none" %></small>
+                                <small class="font-weight-bold text-primary"><%= link_to comment.user.full_name, user_path(comment.user), class: "text-decoration-none" %></small>
                                 <small class="font-weight-bold"><%= comment.content %></small>
                             </span>
                         </div>

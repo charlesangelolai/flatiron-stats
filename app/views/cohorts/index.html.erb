@@ -10,10 +10,10 @@
 
   <% @cohorts.each do |cohort| %>
     <tr>
-      <td><%= link_to "#{cohort.name}", cohort_path(cohort), class: "link-dark" %></td>
-      <td><%= "#{cohort.program}" %></td>
-      <td><%= "#{cohort.time}" %></td>
-      <td><span class="badge rounded-pill bg-dark text-light"><%= "#{cohort.status}" %></span></td>
+      <td><%= link_to cohort.name, cohort_path(cohort), class: "link-dark" %></td>
+      <td><%= cohort.program %></td>
+      <td><%= cohort.time %></td>
+      <td><span class="badge rounded-pill bg-dark text-light"><%= cohort.status %></span></td>
     </tr>
   <% end %>
 

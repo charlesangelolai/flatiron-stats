@@ -10,10 +10,10 @@
 
   <% @projects.each do |project| %>
     <tr>
-      <td><%= link_to "#{project.name}", project_path(project), class: "link-dark" %></td>
-      <td><%= link_to "#{project.user.first_name}  #{project.user.last_name}", project_path(project), class: "link-dark" %></td>
-      <td>Phase <%= "#{project.phase_num}" %></td>
-      <td><%= link_to "#{project.user.cohort.name}", cohort_path(project.user.cohort), class: "link-dark" %></td>
+      <td><%= link_to project.name, project_path(project), class: "link-dark" %></td>
+      <td><%= link_to project.user.full_name, project_path(project), class: "link-dark" %></td>
+      <td>Phase <%= project.phase_num %></td>
+      <td><%= link_to project.user.cohort.name, cohort_path(project.user.cohort), class: "link-dark" %></td>
     </tr>
 
   <% end %>

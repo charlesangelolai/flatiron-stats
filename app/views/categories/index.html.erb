@@ -9,9 +9,9 @@
 
   <% @categories.each do |category| %>
     <tr>
-      <td><%= link_to "#{category.name}", category_path(category), class: "link-dark" %></td>
-      <td><%= "#{category.posts.count}" %></td>
-      <td><%= "#{category.created_at}" %></td>
+      <td><%= link_to category.name, category_path(category), class: "link-dark" %></td>
+      <td><%= category.posts.count %></td>
+      <td><%= category.created_at %></td>
     </tr>
 
   <% end %>

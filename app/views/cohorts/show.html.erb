@@ -45,9 +45,9 @@
 
   <% @students.each do |student| %>
     <tr>
-      <td><%= link_to "#{student.first_name} #{student.last_name}", account_path(student), class: "link-dark" %></td>
-      <td><%= "#{student.projects.count}" %></td>
-      <td><%= "#{student.created_at}" %></td>
+      <td><%= link_to student.full_name, user_path(student), class: "link-dark" %></td>
+      <td><%= student.projects.count %></td>
+      <td><%= student.created_at %></td>
     </tr>
   <% end %>
 

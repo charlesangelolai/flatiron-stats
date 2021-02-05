@@ -14,10 +14,10 @@
 
   <% @posts.each do |post| %>
     <tr>
-      <td><%= link_to "#{post.title}", category_post_path(@category, post), class: "link-dark" %></td>
-      <td><%= "#{post.comments.count}" %></td>
-      <td><%= "#{post.user.first_name} #{post.user.last_name}" %></td>
-      <td><%= "#{post.created_at}" %></td>
+      <td><%= link_to post.title, category_post_path(@category, post), class: "link-dark" %></td>
+      <td><%= post.comments.count %></td>
+      <td><%= post.user.full_name %></td>
+      <td><%= post.created_at %></td>
     </tr>
   <% end %>
 

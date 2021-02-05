@@ -6,10 +6,10 @@
     <h6 class="card-subtitle mb-2 text-muted">Phase <%= @project.phase_num %></h6>
     <p class="card-text"><%= @project.description %></p>
 
-    <%= link_to "Website Link", "#{@project.website_link}", class: "card-link" %>
-    <%= link_to "Github Link", "#{@project.github_link}", class: "card-link" %>
-    <%= link_to "Blog Link", "#{@project.blog_link}", class: "card-link" %>
-    <%= link_to "Video Link", "#{@project.video_link}", class: "card-link" %>
+    <%= link_to "Website Link", @project.website_link, class: "card-link" %>
+    <%= link_to "Github Link", @project.github_link}, class: "card-link" %>
+    <%= link_to "Blog Link", @project.blog_link}, class: "card-link" %>
+    <%= link_to "Video Link", @project.video_link, class: "card-link" %>
   </div>
 </div>
 
