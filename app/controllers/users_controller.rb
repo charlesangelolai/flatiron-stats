@@ -30,16 +30,16 @@ class UsersController < ApplicationController
       params[:user][:cohort_attributes][:name] = format_cohort_name(full_date, program, time)
     end
     
-    binding.pry
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
-      binding.pry
       render :edit
     end
   end
 
   def destroy
+    @user.destroy
+    redirect_to dashboard_path
   end
   
   private

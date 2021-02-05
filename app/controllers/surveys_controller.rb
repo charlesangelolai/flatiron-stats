@@ -27,9 +27,9 @@ class SurveysController < ApplicationController
 
   def edit
   end
-
+  
   def update
-    if @survey.update(survey_params)
+    if @survey.update(survey_update_params)
       redirect_to survey_path(@survey)
     else
       binding.pry
@@ -59,6 +59,20 @@ class SurveysController < ApplicationController
       :name,
       :phase_num,
       survey_questions_attributes: [
+        :design_question, 
+        :navigation_question, 
+        :error_handling_question, 
+        :rating
+      ]
+    )
+  end
+
+  def survey_update_params
+    params.require(:survey).permit(
+      :name,
+      :phase_num,
+      survey_questions_attributes: [
+        :id,
         :design_question, 
         :navigation_question, 
         :error_handling_question, 
