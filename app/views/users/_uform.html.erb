@@ -1,0 +1,59 @@
+<%= form_with model: user, local: true do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row mb-3">
+    <div class="field col-6">
+      <%= f.label :first_name, class: "form-label" %><br />
+      <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "first-name" %>
+    </div>
+    <div class="field col-6">
+      <%= f.label :last_name, class: "form-label" %><br />
+      <%= f.text_field :last_name, class: "form-control", autocomplete: "last-name" %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="field">
+      <%= f.label :email, class: "form-label" %><br />
+      <%= f.email_field :email, class: "form-control", autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="row form-group mb-3">
+    <div class="col-6">
+    <h5 class="mb-3 mt-3">Select Cohort</h5>
+    <%= f.label :cohort_id %>
+    <%= f.collection_select :cohort_id, Cohort.all, :id, :name, { include_blank: "Select Cohort" }, { class: "form-select" } %>
+    </div>
+    <div class="col-6">
+      <h5 class="mb-3 mt-3">Create/Register Cohort</h5>
+      <%= f.fields_for :cohort, @user.build_cohort do |cb| %>
+          
+            <%= cb.label "Start Date" %>
+            <%= cb.date_select :name, { prompt: { day: "Select Day", month: "Select Month", year: "Select Year" } }, { class: "form-select mb-1" } %>
+
+            <%= cb.label :program %>
+            <%= cb.select :program, options_for_select(["Software Engineering", "Data Science", "Cyber Security"]), { include_blank: "Select Program" }, { class: "form-select mb-1" } %>
+
+            <%= cb.label :time %>
+            <%= cb.select :time, options_for_select(["Full-Time", "Part-Time"]), { include_blank: "Select Time" }, { class: "form-select mb-1" } %>
+
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Update", class: "btn btn-dark" %>
+    <%= link_to "Cancel", dashboard_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>
