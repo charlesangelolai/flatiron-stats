@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resource :survey_responses
   end
 
-  resources :categories, except: [:show]
+  resources :categories
   resources :categories, only: [:show] do
     resources :posts do
       resources :comments
