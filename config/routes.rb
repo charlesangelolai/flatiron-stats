@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
-
+  
+  resources :users, only: [:index, :show, :edit, :update]
   resources :cohorts
   resources :surveys
   resources :survey_responses
@@ -39,7 +40,4 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'dashboard#index'
-  get '/account/:id', to: 'users#show', as: 'account'
-
-  # root to: 'static#home'
 end
