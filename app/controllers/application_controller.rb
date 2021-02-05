@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_if_not_admin
+    unless is_admin?
+      redirect_to dashboard_path
+    end
+  end
+
   def redirect_if_not_admin_or_user
     unless @user == current_user
       redirect_to dashboard_path
