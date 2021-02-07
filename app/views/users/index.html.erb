@@ -1,13 +1,13 @@
-<%= render partial: "/layouts/header", locals: { header_name: "Users List" } %>
+<%= render partial: "/layouts/header_with_search", locals: { header_name: "Users List", search_name: "Search Users: " } %>
 
 <table class="table table-striped">
   <tr>
-    <th>Full Name</th>
-    <th>Email</th>
+    <th><%= sortable "first_name", "Full Name" %></th>
+    <th><%= sortable "email" %></th>
     <th>Cohort</th>
     <th>Total Projects</th>
-    <th>Date Joined</th>
-    <th>Last Active</th>
+    <th><%= sortable "created_at", "Date Joined" %>  </th>
+    <th><%= sortable "last_sign_in_at", "Last Active" %> </th>
     <th>Actions</th>
   </tr>
 

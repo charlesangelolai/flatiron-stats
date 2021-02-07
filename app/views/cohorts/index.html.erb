@@ -2,10 +2,10 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Cohort</th>
-    <th>Program</th>
-    <th>Time</th>
-    <th>Status</th>
+    <th><%= sortable "name", "Cohort" %></th>
+    <th><%= sortable "program" %></th>
+    <th><%= sortable "time" %></th>
+    <th><%= sortable "status" %></th>
   </tr>
 
   <% @cohorts.each do |cohort| %>

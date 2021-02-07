@@ -2,9 +2,9 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Survey Name</th>
-    <th>Phase Number</th>
-    <th>Created At</th>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "phase_num", "Phase Number" %></th>
+    <th><%= sortable "created_at", "Created At" %></th>
   </tr>
 
   <% @surveys.each do |survey| %>
@@ -13,10 +13,7 @@
       <td>Phase <%= "#{survey.phase_num}" %></td>
       <td><%= "#{survey.created_at}" %></td>
     </tr>
-
   <% end %>
-
 </table>
-
 
 <%= link_to "Create New Survey", new_survey_path, class: "btn btn-dark"  %>

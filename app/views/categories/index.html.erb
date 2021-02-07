@@ -2,9 +2,9 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Topic</th>
+    <th><%= sortable "name", "Topic" %></th>
     <th>Total Posts</th>
-    <th>Created At</th>
+    <th><%= sortable "created_at", "Created At" %></th>
   </tr>
 
   <% @categories.each do |category| %>
