@@ -5,6 +5,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    if params[:query]
+      @users = @users.search(params[:query])
+    end
+
+    if params[:sort]
+      @users = @users.order(sort_column + " " + sort_direction)
+    end
   end
 
   def show
@@ -88,5 +95,9 @@ class UsersController < ApplicationController
     cohort_name = "#{@COHORT_PROGRAMS[program]}-#{@COHORT_TIME[time]}-#{date}"
     
     cohort_name
+  end
+
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 end

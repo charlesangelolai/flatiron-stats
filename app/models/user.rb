@@ -23,10 +23,14 @@ class User < ApplicationRecord
       user.last_name = auth.info.name.split(' ').second
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-    end      
+    end
   end
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def self.search(params)
+    where("LOWER(first_name) || ' ' || LOWER(last_name) LIKE :s OR LOWER(email) LIKE :s", :s => "%#{params.downcase}%")
   end
 end
