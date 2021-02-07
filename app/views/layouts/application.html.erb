@@ -14,10 +14,10 @@
   </head>
 
   <body>
-    <%= render'shared/alert' %>
     <% if user_signed_in? %>
       <%= render 'layouts/dashboard' %>
     <% else %>
+      <%= render'shared/alert' %>
       <%= yield %>
     <% end %>
   </body>
