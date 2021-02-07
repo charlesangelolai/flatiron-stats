@@ -3,7 +3,7 @@
 <div class="container">
   <main class="form-signin position-absolute top-50 start-50 translate-middle", style="text-align: center;">
     <span data-feather="bar-chart-2" style="height: 60px; width: 60px;"></span>
-    <h1 class="pb-2">Welcome to FlatironStats!</h1>
+    <h1 class="pb-2">Welcome to FlatironStudents!</h1>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <h3 class="mb-1 fw-normal"><span data-feather="log-in" style="height: 35px; width: 35px;"></span>&nbsp;&nbsp; Log In</h2>
       <div class="field", style="text-align: left !important;">
@@ -20,7 +20,7 @@
         <%= f.submit "Log in", class: "w-100 btn btn-lg btn-dark" %>
       </div>
       <%= render "devise/shared/links" %>
-      <p class="mt-5 mb-3 text-muted">&copy; FlatironStats 2021</p>
+      <p class="mt-5 mb-3 text-muted">&copy; FlatironStudents 2021</p>
     <% end %>
   </main>
 </div>
