@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2"><%= header_name %></h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <%= form_tag "/users", method: "get" do %>
+      <%= label_tag :query, "#{search_name}" %>
+      <%= text_field_tag :query %>
+      <%= submit_tag "Search", class: "btn btn-sm btn-dark" %>
+    <% end %>
+  </div>
+</div>
