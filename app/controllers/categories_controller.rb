@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   before_action :redirect_if_not_admin, except: [:index, :show]
   
   def index
-    @categories = Category.all
+    @categories = Category.order(sort_column + " " + sort_direction)
   end
 
   def new
@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
   private
 
   def find_posts
-    @posts = @category.posts
+    @posts = @category.posts.order(sort_column + " " + sort_direction)
   end
 
   def find_category
@@ -63,5 +63,9 @@ class CategoriesController < ApplicationController
       :name,
       :description
     )
+  end
+
+  def sort_column
+    Category.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 end

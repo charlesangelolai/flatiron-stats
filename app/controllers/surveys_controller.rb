@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
   before_action :find_survey, only: [:show, :edit, :update, :destroy]
   
   def index
-    @surveys = Survey.all
+    @surveys = Survey.order(sort_column + " " + sort_direction)
   end
 
   def new
@@ -79,5 +79,9 @@ class SurveysController < ApplicationController
         :rating
       ]
     )
+  end
+
+  def sort_column
+    Survey.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 end

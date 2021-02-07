@@ -7,7 +7,7 @@ class CohortsController < ApplicationController
   before_action :find_students, only: [:show]
   
   def index
-    @cohorts = Cohort.all
+    @cohorts = Cohort.order(sort_column + " " + sort_direction)
   end
 
   def new
@@ -81,5 +81,9 @@ class CohortsController < ApplicationController
       :time,
       :status
     )
+  end
+
+  def sort_column
+    Cohort.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 end

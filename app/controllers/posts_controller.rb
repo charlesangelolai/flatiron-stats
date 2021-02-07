@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   before_action :redirect_if_not_admin_or_owner, only: [:edit, :update, :destroy]
   
   def index
-    @posts = Post.all
+    @posts = Post.order(sort_column + " " + sort_direction)
   end
 
   def new
@@ -75,5 +75,9 @@ class PostsController < ApplicationController
       :category_id,
       :user_id
     )
+  end
+
+  def sort_column
+    Post.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 end

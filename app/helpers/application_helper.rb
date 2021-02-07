@@ -23,4 +23,14 @@ module ApplicationHelper
       'alert-info'
     end
   end
+
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = column == params[:sort] && params[:direction] == "asc" ? "desc" : "asc"
+    link_to title, {:sort => column, :direction => direction}
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
 end

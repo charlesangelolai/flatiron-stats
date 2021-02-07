@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
+  helper_method :sort_direction, :sort_direction
   
   before_action :redirect_if_not_logged_in, :redirect_if_no_cohort
   before_action :find_project, only: [:show, :edit, :update, :destroy]
@@ -7,7 +8,7 @@ class ProjectsController < ApplicationController
   before_action :redirect_if_not_admin_or_owner, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    @projects = Project.order(sort_column + " " + sort_direction)
   end
 
   def new
@@ -83,5 +84,9 @@ class ProjectsController < ApplicationController
       :video_link,
       :user_id
     )
+  end
+
+  def sort_column
+    Project.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 end
