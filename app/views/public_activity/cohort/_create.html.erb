@@ -1,0 +1,8 @@
+<% if activity.trackable %>
+  <div class="feed-item">
+    <div class="date"><%= activity.trackable.created_at %></div>
+    <div class="text">
+      <%= link_to activity.trackable.name, cohort_path(activity.trackable.id), class: "link-dark" %> a Cohort from Flatiron's <%= activity.trackable.program %> program is now part of the FlatironStudents community!
+    </div>
+  </div>
+<% end %>
