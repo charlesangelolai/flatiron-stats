@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     month = params[:user][:cohort_attributes]["name(2i)"]
     day = params[:user][:cohort_attributes]["name(3i)"]
     program = params[:user][:cohort_attributes][:program]
-    time = params[:user][:cohort_attributes][:time]
+    pace = params[:user][:cohort_attributes][:pace]
 
     params[:user][:cohort_attributes].delete("name(1i)")
     params[:user][:cohort_attributes].delete("name(2i)")
@@ -25,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     full_date = format_date(year, month, day)
 
     if full_date
-      params[:user][:cohort_attributes][:name] = format_cohort_name(full_date, program, time)
+      params[:user][:cohort_attributes][:name] = format_cohort_name(full_date, program, pace)
     end
     super
   end

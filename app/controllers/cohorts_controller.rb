@@ -70,7 +70,7 @@ class CohortsController < ApplicationController
     params.require(:cohort).permit(
       :name,
       :program,
-      :time
+      :pace
     )
   end
 
@@ -78,7 +78,7 @@ class CohortsController < ApplicationController
     params.require(:cohort).permit(
       :name,
       :program,
-      :time,
+      :pace,
       :status
     )
   end
