@@ -6,10 +6,22 @@
     <h6 class="card-subtitle mb-2 text-muted">Phase <%= @project.phase_num %></h6>
     <p class="card-text"><%= @project.description %></p>
 
-    <%= link_to "Website Link", @project.website_link, class: "card-link" %>
-    <%= link_to "Github Link", @project.github_link, class: "card-link" %>
-    <%= link_to "Blog Link", @project.blog_link, class: "card-link" %>
-    <%= link_to "Video Link", @project.video_link, class: "card-link" %>
+    <%= link_to @project.website_link, class: "card-link link-dark", style: "text-decoration: none;" do %>
+      <span data-feather="external-link" style="height: 15x; width: 15x;"></span>
+      &nbsp;Website
+    <% end %>
+    <%= link_to @project.github_link, class: "card-link link-dark", style: "text-decoration: none;" do %>
+      <span data-feather="github" style="height: 15x; width: 15x;"></span>
+      &nbsp;GitHub
+    <% end %>
+    <%= link_to @project.blog_link, class: "card-link link-dark", style: "text-decoration: none;" do %>
+      <span data-feather="file-text" style="height: 15x; width: 15x;"></span>
+      &nbsp;Blog
+    <% end %>
+    <%= link_to @project.video_link, class: "card-link link-dark", style: "text-decoration: none;" do %>
+      <span data-feather="video" style="height: 15x; width: 15x;"></span>
+      &nbsp;Video
+    <% end %>
   </div>
 </div>
 
@@ -18,7 +30,8 @@
     <%= link_to "Edit", edit_project_path(@project), class: "btn btn-sm btn-dark" %>
     <%= link_to "Delete", project_path(@project), method: "delete", class: "btn btn-sm btn-dark" %>
   <% end %>
-    <%= link_to "Submit Survey", new_project_survey_responses_path(@project), class: "btn btn-sm btn-dark" %>
+
+  <%= link_to "Submit Survey", new_project_survey_responses_path(@project), class: "btn btn-sm btn-dark" unless @project.user == current_user%>
 </div>
 
 <div class="row gutters-sm mt-3">

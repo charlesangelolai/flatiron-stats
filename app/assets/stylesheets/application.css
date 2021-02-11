@@ -172,7 +172,7 @@ body {
   height: 10px;
   border-radius: 6px;
   background: #fff;
-  border: 1px solid;
+  border: 1px solid #153131;
 }
 .activity-feed .feed-item .date {
   position: relative;

@@ -27,7 +27,7 @@ module ApplicationHelper
   def sortable(column, title = nil)
     title ||= column.titleize
     direction = column == params[:sort] && params[:direction] == "asc" ? "desc" : "asc"
-    link_to title, {:sort => column, :direction => direction}
+    link_to title, {:sort => column, :direction => direction}, class: "link-dark"
   end
 
   def sort_direction

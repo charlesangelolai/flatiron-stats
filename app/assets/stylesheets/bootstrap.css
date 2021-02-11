@@ -2859,13 +2859,13 @@ fieldset:disabled .btn {
 }
 .btn-dark {
   color: #fff;
-  background-color: #212529;
-  border-color: #212529;
+  background-color: #153131;
+  border-color: #153131;
 }
 .btn-dark:hover {
   color: #fff;
-  background-color: #1c1f23;
-  border-color: #1a1e21;
+  background-color: #1a3d3d;
+  border-color: #1a3d3d;
 }
 .btn-check:focus + .btn-dark,
 .btn-dark:focus {
