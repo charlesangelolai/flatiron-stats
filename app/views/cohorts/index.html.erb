@@ -4,7 +4,7 @@
   <tr>
     <th><%= sortable "name", "Cohort" %></th>
     <th><%= sortable "program" %></th>
-    <th><%= sortable "time" %></th>
+    <th><%= sortable "pace" %></th>
     <th><%= sortable "status" %></th>
   </tr>
 
@@ -12,9 +12,8 @@
     <tr>
       <td><%= link_to cohort.name, cohort_path(cohort), class: "link-dark" %></td>
       <td><%= cohort.program %></td>
-      <td><%= cohort.time %></td>
+      <td><%= cohort.pace %></td>
       <td><span class="badge rounded-pill bg-dark text-light"><%= cohort.status %></span></td>
     </tr>
   <% end %>
-
 </table>
