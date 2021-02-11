@@ -12,26 +12,29 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to category_post_path(@category, @post)
+      flash[:success] = "Successfully created new comment!"
     else
-      binding.pry
-      render :new
+      redirect_to request.referrer
+      flash[:error] = "Cannot submit empty field! Please try again."
     end
   end
-
+  
   def edit
   end
-
+  
   def update
     if @comment.update(comment_update_params)
       redirect_to category_post_path(@category, @post)
+      flash[:success] = "Successfully updated comment!"
     else
       render :edit
     end
   end
-
+  
   def destroy
     @comment.destroy
     redirect_to category_post_path(@category, @post)
+    flash[:success] = "Successfully deleted comment."
   end
 
   private

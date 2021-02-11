@@ -27,7 +27,7 @@ class CohortsController < ApplicationController
     if @cohort.save
       redirect_to cohort_path(@cohort)
     else
-      flash.now[:error] = @cohort.errors.full_messages
+      flash[:error] = @cohort.errors.full_messages
       render :new
     end
   end
@@ -39,7 +39,7 @@ class CohortsController < ApplicationController
     if is_admin? && @cohort.update(cohort_admin_params)
       redirect_to cohort_path(@cohort)
     else
-      flash.now[:error] = @cohort.errors.full_messages
+      flash[:error] = @cohort.errors.full_messages
       render :edit
     end
   end

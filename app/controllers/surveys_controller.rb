@@ -21,6 +21,7 @@ class SurveysController < ApplicationController
     if @survey.save
       redirect_to survey_path(@survey)
     else
+      flash[:error] = @survey.errors.full_messages
       render :new
     end
   end
@@ -32,7 +33,7 @@ class SurveysController < ApplicationController
     if @survey.update(survey_update_params)
       redirect_to survey_path(@survey)
     else
-      binding.pry
+      flash[:error] = @survey.errors.full_messages
       render :edit
     end
   end

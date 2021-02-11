@@ -26,30 +26,32 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       redirect_to category_post_path(@category, @post)
+      flash[:success] = "Successfully created new post!"
     else
-      binding.pry
       render :new
     end
   end
-
+  
   def edit
   end
-
+  
   def update
     if @post.update(post_params)
       redirect_to category_post_path(@category, @post)
+      flash[:success] = "Successfully updated post!"
     else
       render :edit
     end
   end
-
+  
   def destroy
     @post.destroy
     redirect_to category_path(@category)
+    flash[:success] = "Successfully deleted post."
   end
-
+  
   private
-
+  
   def find_post
     @post = Post.find_by_id(params[:id])
   end
