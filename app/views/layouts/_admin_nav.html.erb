@@ -1,60 +1,60 @@
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <%= link_to dashboard_path, class: "nav-link fs-6" do %>
-              <span data-feather="home" style="height: 20px; width: 20px;"></span>
-              Dashboard
-            <% end %>            
-          </li>
-          <li class="nav-item">
-            <%= link_to users_path, class: "nav-link fs-6" do %>
-              <span data-feather="user-check" style="height: 20px; width: 20px;"></span>
-              Users
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to projects_path, class: "nav-link fs-6" do %>
-              <span data-feather="code" style="height: 20px; width: 20px;"></span>
-              Projects
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to surveys_path, class: "nav-link fs-6" do %>
-              <span data-feather="file-text" style="height: 20px; width: 20px;"></span>
-              Surveys
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to categories_path, class: "nav-link fs-6" do %>
-              <span data-feather="droplet" style="height: 20px; width: 20px;"></span>
-              The Watercooler
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to cohorts_path, class: "nav-link fs-6" do %>
-              <span data-feather="users" style="height: 20px; width: 20px;"></span>
-              Cohorts
-            <% end %>
-          </li>
-        </ul>
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to dashboard_path, class: "nav-link fs-6" do %>
+          <span data-feather="home" style="height: 20px; width: 20px;"></span>
+          Dashboard
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to users_path, class: "nav-link fs-6" do %>
+          <span data-feather="user-check" style="height: 20px; width: 20px;"></span>
+          Users
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to projects_path, class: "nav-link fs-6" do %>
+          <span data-feather="code" style="height: 20px; width: 20px;"></span>
+          Projects
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to surveys_path, class: "nav-link fs-6" do %>
+          <span data-feather="file-text" style="height: 20px; width: 20px;"></span>
+          Surveys
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to categories_path, class: "nav-link fs-6" do %>
+          <span data-feather="droplet" style="height: 20px; width: 20px;"></span>
+          The Watercooler
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to cohorts_path, class: "nav-link fs-6" do %>
+          <span data-feather="users" style="height: 20px; width: 20px;"></span>
+          Cohorts
+        <% end %>
+      </li>
+    </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Account</span>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <%= link_to user_path(current_user), class: "nav-link fs-6" do %>
-              <span data-feather="user" style="height: 20px; width: 20px;"></span>
-              Profile Settings
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to destroy_user_session_path, class: "nav-link fs-6", method: "DELETE" do %>
-              <span data-feather="log-out" style="height: 20px; width: 20px;"></span>
-              Sign out
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Account</span>
+    </h6>
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <%= link_to user_path(current_user), class: "nav-link fs-6" do %>
+          <span data-feather="user" style="height: 20px; width: 20px;"></span>
+          Profile Settings
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path, class: "nav-link fs-6", method: "DELETE" do %>
+          <span data-feather="log-out" style="height: 20px; width: 20px;"></span>
+          Sign out
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

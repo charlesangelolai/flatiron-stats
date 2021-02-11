@@ -1,3 +1,5 @@
+<%= render partial: "shared/error", locals: { model: project } %>
+
 <%= form_with model: project, local: true do |f| %>
   <div class="form-group">
     <%= f.label :name %>

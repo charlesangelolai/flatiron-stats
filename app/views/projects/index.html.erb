@@ -15,9 +15,7 @@
       <td>Phase <%= project.phase_num %></td>
       <td><%= link_to project.user.cohort.name, cohort_path(project.user.cohort), class: "link-dark" %></td>
     </tr>
-
   <% end %>
-
 </table>
 
 <%= link_to "Create New Project", new_project_path, class: "btn btn-dark" %>
