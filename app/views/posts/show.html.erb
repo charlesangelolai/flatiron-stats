@@ -1,4 +1,4 @@
-<%= render partial: "/layouts/header", locals: { header_name: "#{@post.title}" } %>
+<%= render partial: "/shared/header", locals: { header_name: "#{@post.title}" } %>
 
 <div class="mt-1 mb-1">
   <p><%= "#{@post.user.full_name} - #{@post.content}"%></p>
