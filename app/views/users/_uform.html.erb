@@ -1,15 +1,6 @@
-<%= form_with model: user, local: true do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render partial: "shared/error", locals: { model: user } %>
 
+<%= form_with model: user, local: true do |f| %>
   <div class="row mb-3">
     <div class="field col-6">
       <%= f.label :first_name, class: "form-label" %><br />
@@ -37,20 +28,15 @@
     <div class="col-6">
       <h5 class="mb-3 mt-3">Create/Register Cohort</h5>
       <%= f.fields_for :cohort, @user.build_cohort do |cb| %>
-          
             <%= cb.label "Start Date" %>
             <%= cb.date_select :name, { prompt: { day: "Select Day", month: "Select Month", year: "Select Year" } }, { class: "form-select mb-1" } %>
-
             <%= cb.label :program %>
             <%= cb.select :program, options_for_select(["Software Engineering", "Data Science", "Cyber Security"]), { include_blank: "Select Program" }, { class: "form-select mb-1" } %>
-
-            <%= cb.label :time %>
-            <%= cb.select :time, options_for_select(["Full-Time", "Part-Time"]), { include_blank: "Select Time" }, { class: "form-select mb-1" } %>
-
+            <%= cb.label :pace %>
+            <%= cb.select :pace, options_for_select(["Full-Time", "Part-Time"]), { include_blank: "Select Time" }, { class: "form-select mb-1" } %>
       <% end %>
     </div>
   </div>
-
 
   <div class="actions">
     <%= f.submit "Update", class: "btn btn-dark" %>

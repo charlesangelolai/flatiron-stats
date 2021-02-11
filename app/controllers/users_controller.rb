@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     month = params[:user][:cohort_attributes]["name(2i)"]
     day = params[:user][:cohort_attributes]["name(3i)"]
     program = params[:user][:cohort_attributes][:program]
-    time = params[:user][:cohort_attributes][:time]
+    pace = params[:user][:cohort_attributes][:pace]
 
     params[:user][:cohort_attributes].delete("name(1i)")
     params[:user][:cohort_attributes].delete("name(2i)")
@@ -34,11 +34,12 @@ class UsersController < ApplicationController
     full_date = format_date(year, month, day)
 
     if full_date
-      params[:user][:cohort_attributes][:name] = format_cohort_name(full_date, program, time)
+      params[:user][:cohort_attributes][:name] = format_cohort_name(full_date, program, pace)
     end
     
     if @user.update(user_params)
       redirect_to user_path(@user)
+      flash[:success] = "Successfully updated profile!"
     else
       render :edit
     end
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
       cohort_attributes: [
         :name,
         :program,
-        :time
+        :pace
       ]
     )
   end
@@ -80,19 +81,19 @@ class UsersController < ApplicationController
     end
   end
 
-  def format_cohort_name(date, program, time)
+  def format_cohort_name(date, program, pace)
     @COHORT_PROGRAMS = {
       "Software Engineering" => "seng",
       "Data Science" => "dsci",
       "Cyber Security" => "csec"
     }
     
-    @COHORT_TIME = {
+    @COHORT_PACE = {
       "Full-Time" => "ft",
       "Part-Time" => "pt"
     }
 
-    cohort_name = "#{@COHORT_PROGRAMS[program]}-#{@COHORT_TIME[time]}-#{date}"
+    cohort_name = "#{@COHORT_PROGRAMS[program]}-#{@COHORT_PACE[pace]}-#{date}"
     
     cohort_name
   end

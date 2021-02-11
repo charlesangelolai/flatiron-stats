@@ -17,6 +17,10 @@ class User < ApplicationRecord
   
   accepts_nested_attributes_for :cohort, reject_if: :all_blank
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.first_name = auth.info.name.split(' ').first
