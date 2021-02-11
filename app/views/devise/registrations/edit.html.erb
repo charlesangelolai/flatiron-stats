@@ -39,8 +39,8 @@
               <%= cb.label :program %>
               <%= cb.select :program, options_for_select(["Software Engineering", "Data Science", "Cyber Security"]), { include_blank: "Select Program" }, { class: "form-select mb-1" } %>
 
-              <%= cb.label :time %>
-              <%= cb.select :time, options_for_select(["Full-Time", "Part-Time"]), { include_blank: "Select Time" }, { class: "form-select mb-1" } %>
+              <%= cb.label :pace %>
+              <%= cb.select :pace, options_for_select(["Full-Time", "Part-Time"]), { include_blank: "Select Time" }, { class: "form-select mb-1" } %>
 
         <% end %>
       </div>
@@ -53,7 +53,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-  feather.replace()
-</script>
