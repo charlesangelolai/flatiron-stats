@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   end
 
   def find_comments
-    @comments = @post.comments
+    @comments = @post.comments.order(created_at: "desc")
   end
 
   def redirect_if_not_admin_or_owner
