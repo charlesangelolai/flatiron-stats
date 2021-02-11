@@ -9,8 +9,6 @@
     <%= f.select :phase_num, options_for_select(["1", "2", "3", "4", "5"], survey.phase_num.to_s ), { include_blank: "Select Phase" }, { class: "form-select mb-1" } %>
   </div>
 
-
-
   <%= f.fields_for :survey_questions do |sq| %>
     <%= sq.hidden_field :id %>
     
@@ -27,11 +25,6 @@
     <div class="form-group">
       <%= sq.label :error_handling_question %>
       <%= sq.text_field :error_handling_question, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= sq.label :rating %>
-      <%= sq.text_field :rating, class: "form-control" %>
     </div>
   <% end %>
   
