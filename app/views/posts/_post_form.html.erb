@@ -1,13 +1,15 @@
+<%= render partial: "shared/error", locals: { model: post } %>
+
 <%= form_for [category, post], local: true do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :content %>
-    <%= f.text_field :content %>
+    <%= f.text_area :content, class: "form-control" %>
   </div>
   
-  <%= f.submit button_name %>
+  <%= f.submit button_name, class: "btn btn-dark mt-3" %>
 <% end %>
