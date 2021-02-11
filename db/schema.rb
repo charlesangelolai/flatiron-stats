@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_204749) do
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
     t.string "program"
-    t.string "time"
+    t.string "pace"
     t.string "status", default: "pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 2021_02_02_204749) do
     t.string "design_question"
     t.string "navigation_question"
     t.string "error_handling_question"
-    t.string "rating"
     t.integer "survey_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -101,7 +100,6 @@ ActiveRecord::Schema.define(version: 2021_02_02_204749) do
     t.integer "design_response"
     t.integer "navigation_response"
     t.integer "error_handling_response"
-    t.integer "rating_response"
     t.integer "survey_id"
     t.integer "project_id"
     t.integer "user_id"

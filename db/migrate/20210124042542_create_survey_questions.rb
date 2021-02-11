@@ -4,7 +4,6 @@ class CreateSurveyQuestions < ActiveRecord::Migration[6.1]
       t.string :design_question
       t.string :navigation_question
       t.string :error_handling_question
-      t.string :rating
       t.integer :survey_id
 
       t.timestamps
