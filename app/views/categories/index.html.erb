@@ -5,6 +5,9 @@
     <th><%= sortable "name", "Topic" %></th>
     <th>Total Posts</th>
     <th><%= sortable "created_at", "Created At" %></th>
+    <% if is_admin? %>
+      <th>Actions</th>
+    <% end %>
   </tr>
 
   <% @categories.each do |category| %>
@@ -12,10 +15,12 @@
       <td><%= link_to category.name, category_path(category), class: "link-dark" %></td>
       <td><%= category.posts.count %></td>
       <td><%= category.created_at %></td>
+      <% if is_admin? %>
+        <th><%= link_to "Edit", edit_category_path(category), class: "link-dark" %> | <%= link_to "Delete", category_path(category), method: "delete", class: "link-dark" %></th>
+      <% end %>
     </tr>
 
   <% end %>
-
 </table>
 
 <% if is_admin? %>  
