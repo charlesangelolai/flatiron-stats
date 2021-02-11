@@ -9,7 +9,7 @@
   </div>
   <div class="form-group">
     <%= f.label :pace %>
-    <%= f.select :pace, options_for_select(["Full-Time", "Part-Time"], cohort.time.to_s), { include_blank: "Select Time" }, { class: "form-select mb-1" } %>
+    <%= f.select :pace, options_for_select(["Full-Time", "Part-Time"], cohort.pace.to_s), { include_blank: "Select Time" }, { class: "form-select mb-1" } %>
   </div>
   <div class="form-group">
     <%= f.label :status %>
