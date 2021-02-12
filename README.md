@@ -1,24 +1,45 @@
-# README
+# FlatironStudents
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## Installation
 
-* System dependencies
+1. Clone GitHub repository.
 
-* Configuration
+```bash
+$ git clone https://github.com/charlesangelolai/flatiron-students.git
+```
 
-* Database creation
+2. Run bundle install inside the project folder
 
-* Database initialization
+```bash
+$ bundle install
+```
 
-* How to run the test suite
+3. Create, migrate, and seed our database using rake.
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
 
-* Deployment instructions
+## Usage
 
-* ...
+1. Run rails s inside the project folder's console
+
+```bash
+$ rails s
+```
+
+2. Navigate to your browser and enter the rails localhost server (default: localhost:3000).
+
+3. Signup and create a user account.
+
+4. Log in with the credentials entered.
+
+5. Connect with your fellow Flatiron students!
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
