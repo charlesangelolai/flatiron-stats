@@ -2,6 +2,9 @@
 
 FlatironStudents is a Rails web app that allows Flatiron students from different programs and cohorts to share the projects they've built and provide anonymous feedback to the projects of their fellow students. The web app also provides a dashboard feature that allows users to see the most recent activities regarding create, update, and delete actions within it's databases, as well as a forum section called "The Watercooler" were students will be able to create discussions.
 
+### Heroku Website
+https://flatiron-students.herokuapp.com/
+
 ## Installation
 
 1. Clone GitHub repository.
