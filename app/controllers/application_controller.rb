@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
   def redirect_if_no_cohort
     unless current_user.cohort_id
       redirect_to edit_user_registration_path
+      flash[:error] = "You need to be in a cohort to unlock this feature. Please select/register your cohort."
     end
   end
 end
