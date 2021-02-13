@@ -1,24 +1,48 @@
-# README
+# FlatironStudents
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+FlatironStudents is a Rails web app that allows Flatiron students from different programs and cohorts to share the projects they've built and provide anonymous feedback to the projects of their fellow students. The web app also provides a dashboard feature that allows users to see the most recent activities regarding create, update, and delete actions within it's databases, as well as a forum section called "The Watercooler" were students will be able to create discussions.
 
-Things you may want to cover:
+### Heroku Website
+https://flatiron-students.herokuapp.com/
 
-* Ruby version
+## Installation
 
-* System dependencies
+1. Clone GitHub repository.
 
-* Configuration
+```bash
+$ git clone https://github.com/charlesangelolai/flatiron-students.git
+```
 
-* Database creation
+2. Run bundle install inside the project folder
 
-* Database initialization
+```bash
+$ bundle install
+```
 
-* How to run the test suite
+3. Create, migrate, and seed our database using rake.
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
 
-* Deployment instructions
+## Usage
 
-* ...
+1. Run rails s inside the project folder's console
+
+```bash
+$ rails s
+```
+
+2. Navigate to your browser and enter the rails localhost server (default: localhost:3000).
+
+3. Signup and create a user account.
+
+4. Log in with the credentials entered.
+
+5. Connect with your fellow Flatiron students!
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
