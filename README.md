@@ -19,7 +19,7 @@ $ git clone https://github.com/charlesangelolai/flatiron-students.git
 $ bundle install
 ```
 
-3. Create, migrate, and seed our database using rake.
+3. Create, migrate, and seed our database using rails.
 
 ```bash
 $ rails db:create
