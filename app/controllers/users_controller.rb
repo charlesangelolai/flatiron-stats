@@ -44,11 +44,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
-  def destroy
-    @user.destroy
-    redirect_to dashboard_path
-  end
   
   private
 

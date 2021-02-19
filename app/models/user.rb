@@ -5,9 +5,9 @@ class User < ApplicationRecord
   belongs_to :cohort, optional: true
   belongs_to :role
   has_many :projects, dependent: :delete_all
-  has_many :survey_responses, through: :projects, dependent: :delete_all
+  has_many :survey_responses, through: :projects
   has_many :posts, dependent: :delete_all
-  has_many :comments, through: :posts, dependent: :delete_all
+  has_many :comments, through: :posts
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable 
